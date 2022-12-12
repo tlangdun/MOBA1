@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P12 Mobile Web APIs</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #fff;
+        color: #333;
+        font: 1.2em / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+        padding: 0;
+        margin: 0;
+      }
+
+      .box {
+        border: 2px solid rgb(75, 70, 74);
+        border-radius: 0.5em;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: antiquewhite;
+      }
+
+      img {
+        width: auto;
+        height: 250px;
+      }
+
+      .rotate-img {
+        transform: rotate(0deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div>
+        <img class="rotate-img" src="arrow.png" alt="Arrow" />
+      </div>
+    </div>
+  </body>
+  <script>
+    const img = document.querySelector(".rotate-img")
+
+    function handleOrientation(event) {
+      const absolute = event.absolute;
+      const alpha = event.alpha;
+      //const beta = event.beta;
+      //const gamma = event.gamma;
+
+      img.style.transform = `rotateZ(${0+alpha}deg)`
+    }
+    window.addEventListener('deviceorientation', handleOrientation);
+  </script>
+</html>
